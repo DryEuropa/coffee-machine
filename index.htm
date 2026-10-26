@@ -1,0 +1,129 @@
+<style>
+    body{
+        margin:0;
+        inset:0;
+    }
+
+
+    
+    #parent{
+        min-width: 100vw;
+        min-height: 100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        inset:0;
+    }
+    #buttonbox{
+        position: relative;
+        width: 250px;
+        height: 100px;
+        border-radius: 2%;
+        background-color:rgb(205, 205, 205);
+        display: flex;
+        box-shadow: 0px 0px 3px 1px gray;
+    .knobox{
+        position:relative;
+        top: calc(50% - 10px);
+        left:10px;
+        display:flex;
+        gap:5px;
+    }
+
+    }
+    #knob{
+        background-color: rgb(33, 36, 52);
+        height: 20px;
+        width: 20px;
+        border-radius: 25px;
+        overflow:visible;
+        display:flex;
+        position:relative;
+        justify-content: center;
+    }
+    #knobhandel1{
+        position:absolute;
+        height:15px;
+        width:5px;
+        background-color: black;
+        border-radius: 0px 0px 50% 50%;
+        top:10px;
+    }
+    #knobhandel2{
+        position:absolute;
+        height:15px;
+        width:5px;
+        background-color: black;
+        border-radius: 0px 0px 50% 50%;
+        top:10px;
+    }
+    .dialbox{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #dial{
+        position: static;   /* or relative, so it gives .dialbox a size */
+        height: 40px;
+        width: 40px;
+        border: 7px solid darkcyan;
+        background-color: cadetblue;
+        border-radius: 50%;
+    }
+    #grayboxes{
+        position:absolute;
+        gap:3px;
+        display:flex;
+        right:5px;
+        top:7px;
+    }
+    .graybox{
+        position:static;
+        height:20px;
+        width:5px;
+        background-color: rgb(150, 162, 173);
+        border-radius: 20%;
+    }
+</style>
+
+
+
+
+
+
+<body>
+    <div id="parent">
+    <div id="buttonbox">
+        <div class="knobox">
+        <div id="knob">
+            <div id="knobhandel1"></div>
+        </div>
+        <div id="knob">
+            <div id="knobhandel2"></div>
+        </div>
+        </div>
+        <div class="dialbox">
+        <div id="dial">
+        </div>
+        </div>
+        <div id="grayboxes">
+            <div class="graybox"></div>
+            <div class="graybox"></div>
+            <div class="graybox"></div>
+        </div>
+
+    </div>
+    <div id="staging">
+        <div id="disprect"></div>
+        <div id="dispfauc"></div>
+        <div id="display"></div>
+        <div id="stage">
+            <div id="cup"></div>
+            <div id="handel"></div>
+        </div>
+    </div>
+    </div>
+
+</body>
