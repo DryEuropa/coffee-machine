@@ -3,9 +3,6 @@
         margin:0;
         inset:0;
     }
-
-
-    
     #parent{
         min-width: 100vw;
         min-height: 100vh;
@@ -33,7 +30,7 @@
     }
 
     }
-    #knob{
+    .knob{
         background-color: rgb(33, 36, 52);
         height: 20px;
         width: 20px;
@@ -191,6 +188,22 @@
         height:50px;
         background-color: rgb(33, 36, 52);
     }
+    #coffee{
+        position:absolute;
+        width:7px;
+        height:53px;
+        background-color: rgb(95, 44, 2);
+        left:calc(50% - 3.5px);
+        z-index:1;
+        top:57px;
+        animation: pour 5s infinite ease-out;
+    }
+    @keyframes pour {
+        0%{height:0%}
+        40%{height:53px}
+        100%{height:53px}
+        
+    }
 </style> 
 
 
@@ -200,10 +213,10 @@
     <div id="parent">
     <div id="buttonbox">
         <div class="knobox">
-        <div id="knob">
+        <div class="knob">
             <div id="knobhandel1"></div>
         </div>
-        <div id="knob">
+        <div class="knob">
             <div id="knobhandel2"></div>
         </div>
         </div>
@@ -223,6 +236,7 @@
         <div id="dispfauc"></div>
         <div id="tap"></div>
         <div id="display"></div>
+        <div id="coffee"></div>
         <div id="stage">
             <div id="cup"></div>
             <div id="handel"></div>
@@ -234,6 +248,10 @@
     <div id="edge2"></div>
     </div>
     <div id="stand"></div>
+    <div class="steam" id="1"></div>
+    <div class="steam" id="2"></div>
+    <div class="steam" id="3"></div>
+    <div class="steam" id="4"></div>
     </div>
 
 </body>
