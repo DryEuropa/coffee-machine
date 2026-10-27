@@ -14,6 +14,7 @@
         align-items: center;
         margin: 0;
         inset:0;
+        flex-direction: column;
     }
     #buttonbox{
         position: relative;
@@ -86,13 +87,114 @@
         background-color: rgb(150, 162, 173);
         border-radius: 20%;
     }
+    #staging{
+        position: relative;
+        width:230px;
+        height:160px;
+        background-color: lightslategray;
+    }
+    #disprect{
+        position:absolute;
+        width:60px;
+        height:25px;
+        background-color: rgb(33, 36, 52);
+        left:calc(50% - 30px);
+
+    }
+    #dispfauc{
+        position:absolute;
+        width:50px;
+        height:25px;
+        background-color: rgb(33, 36, 52);
+        left:calc(50% - 25px);
+        top:25px;
+        border-radius: 0px 0px 40% 40%;
+
+    }
+    #tap{
+        position: absolute;
+        width:7px;
+        height:10px;
+        top:49px;
+        background-color: rgb(33, 36, 52);
+        left:calc(50% - 3.5px);
+    }
+    #stage{
+        position: absolute;
+        width:210px;
+        height:90px;
+        background-color:dimgrey;
+        bottom:0px;
+        left:calc(50% - 105px);
+        border-radius: 10% 10% 0px 0px;
+    }
+    #display{
+        position:absolute;
+        width:50px;
+        height:20px;
+        background-color:black;
+        right:20px;
+        top:25px;
+    }
+    #cup{
+        position:absolute;
+        bottom:0px;
+        height: 50px;
+        width:65px;
+        left:calc(50% - 32.5px);
+        background-color: whitesmoke;
+        border-radius: 0px 0px 50% 50%;
+    }
+    #handel{
+        position:absolute;
+        border:6px solid whitesmoke;
+        height:25px;
+        width:20px;
+        bottom:10px;
+        border-radius: 50%;
+        left:calc(50% + 17.5px);
+    }
+    #platter{
+        position:relative;
+        display:flex;
+        overflow: visible;
+        width:240px;
+        height:10px;
+    }
+    #plate{
+        position: absolute;
+        width:230px;
+        height: 10px;
+        background-color: darkcyan;
+        left:calc(50% - 115px);
+    }
+    #edge1{
+        position:absolute;
+        width: 10px;
+        height:10px;
+        background-color:darkcyan;
+        left:0px;
+        border-radius: 50%;
+
+    }
+    #edge2{
+        position:absolute;
+        width: 10px;
+        height:10px;
+        background-color:darkcyan;
+        right:0px;
+        border-radius: 50%;
+
+    }
+    #stand{
+        width:250px;
+        height:50px;
+        background-color: rgb(33, 36, 52);
+    }
 </style> 
 
 
 
-
-
-<!-- hello -->
 
 <body>
     <div id="parent">
@@ -119,12 +221,19 @@
     <div id="staging">
         <div id="disprect"></div>
         <div id="dispfauc"></div>
+        <div id="tap"></div>
         <div id="display"></div>
         <div id="stage">
             <div id="cup"></div>
             <div id="handel"></div>
         </div>
     </div>
+    <div id="platter">
+    <div id="plate"></div>
+    <div id="edge1"></div>
+    <div id="edge2"></div>
+    </div>
+    <div id="stand"></div>
     </div>
 
 </body>
