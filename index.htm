@@ -137,10 +137,11 @@
         position:absolute;
         bottom:0px;
         height: 50px;
-        width:65px;
-        left:calc(50% - 32.5px);
+        width:64px;
+        left:calc(50% - 32px);
         background-color: whitesmoke;
         border-radius: 0px 0px 50% 50%;
+        z-index: 1;
     }
     #handel{
         position:absolute;
@@ -196,13 +197,61 @@
         left:calc(50% - 3.5px);
         z-index:1;
         top:57px;
-        animation: pour 5s infinite ease-out;
+        animation: pour 8s infinite linear;
     }
     @keyframes pour {
         0%{height:0%}
         40%{height:53px}
         100%{height:53px}
         
+    }
+    #steamrow{
+        position: absolute;
+        width: 64px;                 
+        left: calc(50% - 32px);      
+        bottom: 20px;                
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+}
+
+    .steam{
+        width: 12px;
+        height: 30px;
+        background-color: lightgray;
+        border-radius: 40%;
+        opacity: 0.5;
+    }
+    @keyframes steaming {
+        0%{
+            transform: translateY(0px);
+            opacity:0.5;
+        }
+        50%{
+            transform: translateY(-40px);
+            opacity: 0;
+        }
+        100%{
+            transform: translateY(-40px);
+            opacity: 0;
+        }
+    }
+    #s1{
+        animation: steaming 8s ease-out infinite;
+        animation-delay: 3.2s;
+    }
+    #s2{
+        animation: steaming 8s ease-out infinite;
+        animation-delay: 4.5s;
+    }
+    #s3{
+        animation: steaming 8s ease-out infinite;
+        animation-delay: 4s;
+
+    }
+    #s4{
+        animation: steaming 8s ease-out infinite;
+        animation-delay: 5s;
     }
 </style> 
 
@@ -240,6 +289,12 @@
         <div id="stage">
             <div id="cup"></div>
             <div id="handel"></div>
+            <div id="steamrow">
+                <div class="steam" id="s1"></div>
+                <div class="steam" id="s2"></div>
+                <div class="steam" id="s3"></div>
+                <div class="steam" id="s4"></div>
+            </div>
         </div>
     </div>
     <div id="platter">
@@ -248,10 +303,7 @@
     <div id="edge2"></div>
     </div>
     <div id="stand"></div>
-    <div class="steam" id="1"></div>
-    <div class="steam" id="2"></div>
-    <div class="steam" id="3"></div>
-    <div class="steam" id="4"></div>
+    
     </div>
 
 </body>
