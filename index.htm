@@ -1,298 +1,302 @@
-<style>
-    body{
-        margin:0;
-        inset:0;
-    }
-    #parent{
-        min-width: 100vw;
-        min-height: 100vh;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        inset:0;
-        flex-direction: column;
-    }
-    #buttonbox{
-        position: relative;
-        width: 250px;
-        height: 100px;
-        border-radius: 2%;
-        background-color:rgb(205, 205, 205);
-        display: flex;
-        box-shadow: 0px 0px 3px 1px gray;
-    .knobox{
-        position:relative;
-        top: calc(50% - 10px);
-        left:10px;
-        display:flex;
-        gap:5px;
-    }
-
-    }
-    .knob{
-        background-color: rgb(33, 36, 52);
-        height: 20px;
-        width: 20px;
-        border-radius: 25px;
-        overflow:visible;
-        display:flex;
-        position:relative;
-        justify-content: center;
-    }
-    #knobhandel1{
-        position:absolute;
-        height:15px;
-        width:5px;
-        background-color: black;
-        border-radius: 0px 0px 50% 50%;
-        top:10px;
-    }
-    #knobhandel2{
-        position:absolute;
-        height:15px;
-        width:5px;
-        background-color: black;
-        border-radius: 0px 0px 50% 50%;
-        top:10px;
-    }
-    .dialbox{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    #dial{
-        position: static;   /* or relative, so it gives .dialbox a size */
-        height: 40px;
-        width: 40px;
-        border: 7px solid darkcyan;
-        background-color: cadetblue;
-        border-radius: 50%;
-    }
-    #grayboxes{
-        position:absolute;
-        gap:3px;
-        display:flex;
-        right:5px;
-        top:7px;
-    }
-    .graybox{
-        position:static;
-        height:20px;
-        width:5px;
-        background-color: rgb(150, 162, 173);
-        border-radius: 20%;
-    }
-    #staging{
-        position: relative;
-        width:230px;
-        height:160px;
-        background-color: lightslategray;
-    }
-    #disprect{
-        position:absolute;
-        width:60px;
-        height:25px;
-        background-color: rgb(33, 36, 52);
-        left:calc(50% - 30px);
-
-    }
-    #dispfauc{
-        position:absolute;
-        width:50px;
-        height:25px;
-        background-color: rgb(33, 36, 52);
-        left:calc(50% - 25px);
-        top:25px;
-        border-radius: 0px 0px 40% 40%;
-
-    }
-    #tap{
-        position: absolute;
-        width:7px;
-        height:10px;
-        top:49px;
-        background-color: rgb(33, 36, 52);
-        left:calc(50% - 3.5px);
-    }
-    #stage{
-        position: absolute;
-        width:210px;
-        height:90px;
-        background-color:dimgrey;
-        bottom:0px;
-        left:calc(50% - 105px);
-        border-radius: 10% 10% 0px 0px;
-    }
-    #display{
-        position:absolute;
-        width:50px;
-        height:20px;
-        background-color:black;
-        right:20px;
-        top:25px;
-    }
-    #cup{
-        position:absolute;
-        bottom:0px;
-        height: 50px;
-        width:64px;
-        left:calc(50% - 32px);
-        background-color: whitesmoke;
-        border-radius: 0px 0px 50% 50%;
-        z-index: 1;
-    }
-    #handel{
-        position:absolute;
-        border:6px solid whitesmoke;
-        height:25px;
-        width:20px;
-        bottom:10px;
-        border-radius: 50%;
-        left:calc(50% + 17.5px);
-    }
-    #platter{
-        position:relative;
-        display:flex;
-        overflow: visible;
-        width:240px;
-        height:10px;
-    }
-    #plate{
-        position: absolute;
-        width:230px;
-        height: 10px;
-        background-color: darkcyan;
-        left:calc(50% - 115px);
-    }
-    #edge1{
-        position:absolute;
-        width: 10px;
-        height:10px;
-        background-color:darkcyan;
-        left:0px;
-        border-radius: 50%;
-
-    }
-    #edge2{
-        position:absolute;
-        width: 10px;
-        height:10px;
-        background-color:darkcyan;
-        right:0px;
-        border-radius: 50%;
-
-    }
-    #stand{
-        width:250px;
-        height:50px;
-        background-color: rgb(33, 36, 52);
-    }
-    #coffee{
-        position:absolute;
-        width:7px;
-        height:53px;
-        background-color: rgb(95, 44, 2);
-        left:calc(50% - 3.5px);
-        z-index:1;
-        top:57px;
-        animation: pour 6s infinite ease-in;
-    }
-    #steamrow{
-        position: absolute;
-        width: 64px;
-        left: calc(50% - 32px);
-        bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-}
-    @keyframes pour {
-        0%   { height: 0; }
-        27%  { height: 53px; }    
-        100% { height: 53px; }
-    }
-
-    .steam{
-        width: 12px;
-        height: 30px;
-        background-color: lightgray;
-        border-radius: 40%;
-        opacity: 0;               
-    }
-    @keyframes steaming {
-        0%   { transform: translateY(0);     opacity: 0.5; }
-        33%  { transform: translateY(-40px); opacity: 0; }   /* 33% of 6s = 2s */
-        100% { transform: translateY(-40px); opacity: 0; }
-    }
-    #s1{ 
-        animation: steaming 6s ease-out infinite;
-        animation-delay: 2s; 
-    }
-    #s2{
-        animation: steaming 6s ease-out infinite;
-        animation-delay: 2.7s; 
-    }
-    #s3{
-        animation: steaming 6s ease-out infinite;
-        animation-delay: 3.3s;
-    }
-    #s4{
-        animation: steaming 6s ease-out infinite;
-        animation-delay: 2.3s;
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" display="width=device-width, initial-scale=1.0 ">
+    <style>
+        body{
+            margin:0;
+            inset:0;
         }
-</style> 
+        #parent{
+            min-width: 100vw;
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            inset:0;
+            flex-direction: column;
+        }
+        #buttonbox{
+            position: relative;
+            width: 250px;
+            height: 100px;
+            border-radius: 2%;
+            background-color:rgb(205, 205, 205);
+            display: flex;
+            box-shadow: 0px 0px 3px 1px gray;
+        .knobox{
+            position:relative;
+            top: calc(50% - 10px);
+            left:10px;
+            display:flex;
+            gap:5px;
+        }
+
+        }
+        .knob{
+            background-color: rgb(33, 36, 52);
+            height: 20px;
+            width: 20px;
+            border-radius: 25px;
+            overflow:visible;
+            display:flex;
+            position:relative;
+            justify-content: center;
+        }
+        #knobhandel1{
+            position:absolute;
+            height:15px;
+            width:5px;
+            background-color: black;
+            border-radius: 0px 0px 50% 50%;
+            top:10px;
+        }
+        #knobhandel2{
+            position:absolute;
+            height:15px;
+            width:5px;
+            background-color: black;
+            border-radius: 0px 0px 50% 50%;
+            top:10px;
+        }
+        .dialbox{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #dial{
+            position: static;   
+            height: 40px;
+            width: 40px;
+            border: 7px solid darkcyan;
+            background-color: cadetblue;
+            border-radius: 50%;
+        }
+        #grayboxes{
+            position:absolute;
+            gap:3px;
+            display:flex;
+            right:5px;
+            top:7px;
+        }
+        .graybox{
+            position:static;
+            height:20px;
+            width:5px;
+            background-color: rgb(150, 162, 173);
+            border-radius: 20%;
+        }
+        #staging{
+            position: relative;
+            width:230px;
+            height:160px;
+            background-color: lightslategray;
+        }
+        #disprect{
+            position:absolute;
+            width:60px;
+            height:25px;
+            background-color: rgb(33, 36, 52);
+            left:calc(50% - 30px);
+
+        }
+        #dispfauc{
+            position:absolute;
+            width:50px;
+            height:25px;
+            background-color: rgb(33, 36, 52);
+            left:calc(50% - 25px);
+            top:25px;
+            border-radius: 0px 0px 40% 40%;
+
+        }
+        #tap{
+            position: absolute;
+            width:7px;
+            height:10px;
+            top:49px;
+            background-color: rgb(33, 36, 52);
+            left:calc(50% - 3.5px);
+        }
+        #stage{
+            position: absolute;
+            width:210px;
+            height:90px;
+            background-color:dimgrey;
+            bottom:0px;
+            left:calc(50% - 105px);
+            border-radius: 10% 10% 0px 0px;
+        }
+        #display{
+            position:absolute;
+            width:50px;
+            height:20px;
+            background-color:black;
+            right:20px;
+            top:25px;
+        }
+        #cup{
+            position:absolute;
+            bottom:0px;
+            height: 50px;
+            width:64px;
+            left:calc(50% - 32px);
+            background-color: whitesmoke;
+            border-radius: 0px 0px 50% 50%;
+            z-index: 1;
+        }
+        #handel{
+            position:absolute;
+            border:6px solid whitesmoke;
+            height:25px;
+            width:20px;
+            bottom:10px;
+            border-radius: 50%;
+            left:calc(50% + 17.5px);
+        }
+        #platter{
+            position:relative;
+            display:flex;
+            overflow: visible;
+            width:240px;
+            height:10px;
+        }
+        #plate{
+            position: absolute;
+            width:230px;
+            height: 10px;
+            background-color: darkcyan;
+            left:calc(50% - 115px);
+        }
+        #edge1{
+            position:absolute;
+            width: 10px;
+            height:10px;
+            background-color:darkcyan;
+            left:0px;
+            border-radius: 50%;
+
+        }
+        #edge2{
+            position:absolute;
+            width: 10px;
+            height:10px;
+            background-color:darkcyan;
+            right:0px;
+            border-radius: 50%;
+
+        }
+        #stand{
+            width:250px;
+            height:50px;
+            background-color: rgb(33, 36, 52);
+        }
+        #coffee{
+            position:absolute;
+            width:7px;
+            height:53px;
+            background-color: rgb(95, 44, 2);
+            left:calc(50% - 3.5px);
+            z-index:1;
+            top:57px;
+            animation: pour 6s infinite ease-in;
+        }
+        #steamrow{
+            position: absolute;
+            width: 64px;
+            left: calc(50% - 32px);
+            bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        @keyframes pour {
+            0%   { height: 0; }
+            27%  { height: 53px; }    
+            100% { height: 53px; }
+        }
+
+        .steam{
+            width: 12px;
+            height: 30px;
+            background-color: lightgray;
+            border-radius: 40%;
+            opacity: 0;               
+        }
+        @keyframes steaming {
+            0%   { transform: translateY(0);     opacity: 0.5; }
+            33%  { transform: translateY(-40px); opacity: 0; }   /* 33% of 6s = 2s */
+            100% { transform: translateY(-40px); opacity: 0; }
+        }
+        #s1{ 
+            animation: steaming 6s ease-out infinite;
+            animation-delay: 2s; 
+        }
+        #s2{
+            animation: steaming 6s ease-out infinite;
+            animation-delay: 2.7s; 
+        }
+        #s3{
+            animation: steaming 6s ease-out infinite;
+            animation-delay: 3.3s;
+        }
+        #s4{
+            animation: steaming 6s ease-out infinite;
+            animation-delay: 2.3s;
+        }
+    </style> 
+</head>
 
 
 
+    <body>
+        <div id="parent">
+            <div id="buttonbox">
+                <div class="knobox">
+                <div class="knob">
+                    <div id="knobhandel1"></div>
+                </div>
+                <div class="knob">
+                    <div id="knobhandel2"></div>
+                </div>
+                </div>
+                <div class="dialbox">
+                    <div id="dial">
+                    </div>
+                </div>
+                <div id="grayboxes">
+                    <div class="graybox"></div>
+                    <div class="graybox"></div>
+                    <div class="graybox"></div>
+                </div>
 
-<body>
-    <div id="parent">
-    <div id="buttonbox">
-        <div class="knobox">
-        <div class="knob">
-            <div id="knobhandel1"></div>
-        </div>
-        <div class="knob">
-            <div id="knobhandel2"></div>
-        </div>
-        </div>
-        <div class="dialbox">
-        <div id="dial">
-        </div>
-        </div>
-        <div id="grayboxes">
-            <div class="graybox"></div>
-            <div class="graybox"></div>
-            <div class="graybox"></div>
-        </div>
-
-    </div>
-    <div id="staging">
-        <div id="disprect"></div>
-        <div id="dispfauc"></div>
-        <div id="tap"></div>
-        <div id="display"></div>
-        <div id="coffee"></div>
-        <div id="stage">
-            <div id="cup"></div>
-            <div id="handel"></div>
-            <div id="steamrow">
-                <div class="steam" id="s1"></div>
-                <div class="steam" id="s2"></div>
-                <div class="steam" id="s3"></div>
-                <div class="steam" id="s4"></div>
             </div>
+            <div id="staging">
+                <div id="disprect"></div>
+                <div id="dispfauc"></div>
+                <div id="tap"></div>
+                <div id="display"></div>
+                <div id="coffee"></div>
+                <div id="stage">
+                    <div id="cup"></div>
+                    <div id="handel"></div>
+                    <div id="steamrow">
+                        <div class="steam" id="s1"></div>
+                        <div class="steam" id="s2"></div>
+                        <div class="steam" id="s3"></div>
+                        <div class="steam" id="s4"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="platter">
+                <div id="plate"></div>
+                <div id="edge1"></div>
+                <div id="edge2"></div>
+            </div>
+            <div id="stand"></div>
         </div>
-    </div>
-    <div id="platter">
-    <div id="plate"></div>
-    <div id="edge1"></div>
-    <div id="edge2"></div>
-    </div>
-    <div id="stand"></div>
-    
-    </div>
-
-</body>
+    </body>
+</html>
